@@ -12,6 +12,10 @@ startScreen.addEventListener('click', start);
 
 function start(){
     console.log("In Start");
+
+    gameArea.classList.remove('hide');
+    startScreen.classList.add('hide');
+
     player.start = true;
     window.requestAnimationFrame(gamePlay);
 }
