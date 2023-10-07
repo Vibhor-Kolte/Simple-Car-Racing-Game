@@ -36,15 +36,18 @@ function start(){
 
 function gamePlay(){
     console.log("In Game Play");
+    let road = gameArea.getBoundingClientRect();
+    // console.log(road);
+
     if(player.start){
 
-        if(keys.ArrowUp){
+        if(keys.ArrowUp && player.y > 50){
             player.y -= player.speed;
             car.style.top = player.y + 'px';
         }
-        else if(keys.ArrowDown){car.style.top = (player.y += player.speed) + 'px';}
-        else if(keys.ArrowLeft){car.style.left = (player.x -= player.speed) + 'px';}
-        else if(keys.ArrowRight){car.style.left = (player.x += player.speed) + 'px';}
+        else if(keys.ArrowDown && player.y < (road.height-100)){car.style.top = (player.y += player.speed) + 'px';}
+        else if(keys.ArrowLeft && player.x > 0){car.style.left = (player.x -= player.speed) + 'px';}
+        else if(keys.ArrowRight && player.x < (road.width-50)){car.style.left = (player.x += player.speed) + 'px';}
 
         // console.log("top position:- " + car.offsetTop + "..." + player.y);
         // console.log("left position:- " + car.offsetLeft + "..." + player.x);
