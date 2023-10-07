@@ -6,7 +6,7 @@ const gameArea = document.querySelector('.gameArea');
 // console.log(startScreen);
 // console.log(gameArea);
 
-let player = {};
+let player = { speed:5};
 let car = document.createElement('div');
 car.setAttribute('class','car');
 car.innerText = "Car Object";
@@ -39,12 +39,12 @@ function gamePlay(){
     if(player.start){
 
         if(keys.ArrowUp){
-            player.y -= 5;
+            player.y -= player.speed;
             car.style.top = player.y + 'px';
         }
-        else if(keys.ArrowDown){car.style.top = (player.y += 5) + 'px';}
-        else if(keys.ArrowLeft){car.style.left = (player.x -= 5) + 'px';}
-        else if(keys.ArrowRight){car.style.left = (player.x += 5) + 'px';}
+        else if(keys.ArrowDown){car.style.top = (player.y += player.speed) + 'px';}
+        else if(keys.ArrowLeft){car.style.left = (player.x -= player.speed) + 'px';}
+        else if(keys.ArrowRight){car.style.left = (player.x += player.speed) + 'px';}
 
         // console.log("top position:- " + car.offsetTop + "..." + player.y);
         // console.log("left position:- " + car.offsetLeft + "..." + player.x);
