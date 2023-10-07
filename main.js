@@ -18,6 +18,11 @@ function start(){
 
     player.start = true;
     window.requestAnimationFrame(gamePlay);
+    
+    let car = document.createElement('div');
+    car.setAttribute('class','car');
+    car.innerText = "Car Object";
+    gameArea.appendChild(car);
 }
 
 function gamePlay(){
