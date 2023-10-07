@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net" modified="2023-10-07T17:22:24.499Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="kIYPMkjWkYbsSB9i_5Lr" version="22.0.4" type="device">
+  <diagram name="Page-1" id="1P2irHu0pe8eAoLrlwkr">
+    <mxGraphModel dx="880" dy="484" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="WlryiE9JoQIFY8JfXMQj-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="130" y="40" width="580" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="WlryiE9JoQIFY8JfXMQj-3" value="Score" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9ec4d6;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="160" y="70" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WlryiE9JoQIFY8JfXMQj-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#c36a41;fontColor=#ffffff;strokeColor=#6D1F00;" vertex="1" parent="1">
+          <mxGeometry x="300" y="40" width="250" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="WlryiE9JoQIFY8JfXMQj-6" value="" style="shape=mxgraph.signs.transportation.taxi;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;" vertex="1" parent="1">
+          <mxGeometry x="310" y="60" width="40" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WlryiE9JoQIFY8JfXMQj-7" value="" style="shape=mxgraph.signs.transportation.taxi;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;" vertex="1" parent="1">
+          <mxGeometry x="310" y="160" width="40" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WlryiE9JoQIFY8JfXMQj-8" value="" style="shape=mxgraph.signs.transportation.bus_4;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="190" width="50" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="WlryiE9JoQIFY8JfXMQj-9" value="" style="shape=mxgraph.signs.transportation.taxi;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="390" width="50" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="WlryiE9JoQIFY8JfXMQj-10" value="" style="shape=mxgraph.signs.transportation.taxi;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="340" width="50" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="WlryiE9JoQIFY8JfXMQj-11" value="" style="shape=mxgraph.signs.transportation.taxi;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;" vertex="1" parent="1">
+          <mxGeometry x="470" y="60" width="60" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="WlryiE9JoQIFY8JfXMQj-12" value="" style="shape=mxgraph.signs.transportation.car_1;html=1;pointerEvents=1;fillColor=#a20025;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;strokeColor=#6F0000;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="450" y="100" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WlryiE9JoQIFY8JfXMQj-13" value="Pop Up Box....You Hit Another Car You Loose&lt;br&gt;Click again to start...." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="200" y="230" width="450" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
