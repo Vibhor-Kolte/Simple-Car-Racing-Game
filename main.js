@@ -6,6 +6,23 @@ const gameArea = document.querySelector('.gameArea');
 // console.log(startScreen);
 // console.log(gameArea);
 
+let player = {};
+ 
+startScreen.addEventListener('click', start);
+
+function start(){
+    console.log("In Start");
+    player.start = true;
+    window.requestAnimationFrame(gamePlay);
+}
+
+function gamePlay(){
+    console.log("In Game Play");
+    if(player.start){
+        window.requestAnimationFrame(gamePlay);
+    }
+}
+
 let keys = {ArrowUp:false, ArrowDown:false, ArrowRight: false, ArrowLeft:false};
 
 console.log(keys);
