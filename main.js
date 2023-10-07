@@ -7,6 +7,11 @@ const gameArea = document.querySelector('.gameArea');
 // console.log(gameArea);
 
 let player = {};
+let car = document.createElement('div');
+car.setAttribute('class','car');
+car.innerText = "Car Object";
+gameArea.appendChild(car);
+
  
 startScreen.addEventListener('click', start);
 
@@ -17,21 +22,39 @@ function start(){
     startScreen.classList.add('hide');
 
     player.start = true;
+    // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
     window.requestAnimationFrame(gamePlay);
     
-    let car = document.createElement('div');
-    car.setAttribute('class','car');
-    car.innerText = "Car Object";
-    gameArea.appendChild(car);
+    
+    player.x = car.offsetLeft;
+    player.y = car.offsetTop; 
+
+    /*  left: 50px; top: 120px;  */
+    console.log("top position:- " + car.offsetTop + "..." + player.y);
+    console.log("left position:- " + car.offsetLeft + "..." + player.x);
 }
 
 function gamePlay(){
     console.log("In Game Play");
     if(player.start){
+
+        if(keys.ArrowUp){
+            player.y -= 5;
+            car.style.top = player.y + 'px';
+        }
+        else if(keys.ArrowDown){car.style.top = (player.y += 5) + 'px';}
+        else if(keys.ArrowLeft){car.style.left = (player.x -= 5) + 'px';}
+        else if(keys.ArrowRight){car.style.left = (player.x += 5) + 'px';}
+
+        // console.log("top position:- " + car.offsetTop + "..." + player.y);
+        // console.log("left position:- " + car.offsetLeft + "..." + player.x);
+
         window.requestAnimationFrame(gamePlay);
     }
 }
-
+/*
+    ..............
+*/
 let keys = {ArrowUp:false, ArrowDown:false, ArrowRight: false, ArrowLeft:false};
 
 console.log(keys);
@@ -44,7 +67,7 @@ document.addEventListener('keyup',keyUp);
 function keyDown(e){
     e.preventDefault();
     keys[e.key] = true;
-    console.log(e.key);
+    // console.log(e.key);
     // console.log(keys);
 }
 
