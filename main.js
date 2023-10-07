@@ -2,6 +2,40 @@ const score = document.querySelector('.score');
 const startScreen = document.querySelector('.startScreen');
 const gameArea = document.querySelector('.gameArea');
 
-console.log(score);
-console.log(startScreen);
-console.log(gameArea);
+// console.log(score);
+// console.log(startScreen);
+// console.log(gameArea);
+
+let keys = {ArrowUp:false, ArrowDown:false, ArrowRight: false, ArrowLeft:false};
+
+console.log(keys);
+
+document.addEventListener('keydown',keyDown);
+document.addEventListener('keyup',keyUp);
+// document.addEventListener('keyright',keyRight);
+// document.addEventListener('keyleft',keyLeft);
+
+function keyDown(e){
+    e.preventDefault();
+    keys[e.key] = true;
+    console.log(e.key);
+    // console.log(keys);
+}
+
+function keyUp(e){
+    e.preventDefault();
+    keys[e.key] = false;
+    console.log(e.key);
+}
+
+// function keyRight(e){
+//     e.preventDefault();
+//     keys[e.key] = true;
+//     console.log(e.key);
+// }
+
+// function keyLeft(e){
+//     e.preventDefault();
+//     keys[e.key] = true;
+//     console.log(e.key);
+// }
