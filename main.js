@@ -93,6 +93,7 @@ function moveLines(){
 }
 
 function endGame(){
+    startScreen.classList.remove('hide');
     player.start = false;
 }
 
