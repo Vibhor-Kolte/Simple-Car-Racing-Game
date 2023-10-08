@@ -29,6 +29,9 @@
     margin: auto;
     position: relative;
     overflow: hidden;
+
+    border-right: 4px dashed #c8d6e5;
+    border-left: 4px dashed #c8d6e5;
 }
 
 .roadLine{
