@@ -54,7 +54,8 @@ function start(){
         // oponentCar.y = x*150;
         oponentCar.y = (x+1)*(-350);
         oponentCar.style.top = oponentCar.y + 'px';
-        oponentCar.style.background = randomColor();
+        // oponentCar.style.background = randomColor();
+        oponentCar.style.backgroundColor = randomColor();
         oponentCar.style.left = Math.floor(Math.random()*350) + 'px';
         gameArea.appendChild(oponentCar);
     }
@@ -83,7 +84,7 @@ function gamePlay(){
             player.y -= player.speed;
             car.style.top = player.y + 'px';
         }
-        else if(keys.ArrowDown && player.y < (road.height-100)){car.style.top = (player.y += player.speed) + 'px';}
+        else if(keys.ArrowDown && player.y < (road.height-130)){car.style.top = (player.y += player.speed) + 'px';}
         else if(keys.ArrowLeft && player.x > 0){car.style.left = (player.x -= player.speed) + 'px';}
         else if(keys.ArrowRight && player.x < (road.width-50)){car.style.left = (player.x += player.speed) + 'px';}
 
@@ -92,7 +93,8 @@ function gamePlay(){
 
         console.log(player.score++);
         player.score++;
-        score.innerText=  "Score: " + player.score;
+        let ps = player.score-1; //adjustment for endGame pop-up
+        score.innerText=  "Score: " + ps;
         window.requestAnimationFrame(gamePlay);
         // console.log(player.score++);
     }
@@ -110,6 +112,7 @@ function moveLines(){
 function endGame(){
     startScreen.classList.remove('hide');
     player.start = false;
+    startScreen.innerHTML="Game Over<br> Your final Score is " + player.score + "<br>Press here to restart the game"
 }
 
 function moveOpponentCar(car){

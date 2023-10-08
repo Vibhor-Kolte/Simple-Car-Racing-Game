@@ -12,19 +12,24 @@
 .hide{display: none;}
 
 .car{
-    width: 50px; height: 70px; 
+    width: 50px; height: 120px; 
     background: red;
     position: absolute;
     bottom: 10%; /*initial position*/
-    background-image: url(./resources/images/png-transparent-golden-car-top-view-thumbnail.png);
+    /* background-image: url(./resources/images/png-transparent-golden-car-top-view-thumbnail.png); */
+    background-image: url(./resources/images/car_v1_w_trans.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    
 }
 
 .oponentCar{
-    width: 50px; height: 70px; background: orange;
+    width: 50px; height: 120px; background: orange;
     position: absolute;
+    background-image: url(./resources/images/car_v1_w_trans.png);
     bottom: 10%; /*initial position*/
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 .gameArea{
