@@ -45,6 +45,8 @@ function start(){
         oponentCar.setAttribute('class','enemy');
         oponentCar.y = x*150;
         oponentCar.style.top = oponentCar.y + 'px';
+        oponentCar.style.background = 'orange';
+        oponentCar.style.left = Math.floor(Math.random()*350) + 'px';
         gameArea.appendChild(oponentCar);
     }
 }
