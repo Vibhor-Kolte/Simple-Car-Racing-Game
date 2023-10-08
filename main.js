@@ -6,7 +6,7 @@ const gameArea = document.querySelector('.gameArea');
 // console.log(startScreen);
 // console.log(gameArea);
 
-let player = { speed:5};
+let player = { speed:5, score:0};
 let car = document.createElement('div');
 car.setAttribute('class','car');
 car.innerText = "Car Object";
@@ -19,9 +19,11 @@ function start(){
     console.log("In Start");
 
     gameArea.classList.remove('hide');
+    score.classList.remove('hide');
     startScreen.classList.add('hide');
 
     player.start = true;
+    player.score = 0;
     // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
     window.requestAnimationFrame(gamePlay);
 
@@ -53,7 +55,7 @@ function start(){
 }
 
 function gamePlay(){
-    console.log("In Game Play");
+    // console.log("In Game Play");
     let road = gameArea.getBoundingClientRect();
     // console.log(road);
 
@@ -73,7 +75,11 @@ function gamePlay(){
         // console.log("top position:- " + car.offsetTop + "..." + player.y);
         // console.log("left position:- " + car.offsetLeft + "..." + player.x);
 
+        console.log(player.score++);
+        player.score++;
+        score.innerText=  "Score: " + player.score;
         window.requestAnimationFrame(gamePlay);
+        // console.log(player.score++);
     }
 }
 
@@ -86,12 +92,19 @@ function moveLines(){
     })
 }
 
+function endGame(){
+    startScreen.classList.remove('hide');
+    player.start = false;
+}
+
 function moveOpponentCar(car){
     let lines = document.querySelectorAll('.oponentCar'); //try it out:- document.querySelector('.roadLine');
     lines.forEach(function(item){
         if(isCollide(car,item)){
             console.log("Collision Detected");
+            endGame();
         }
+
         if(item.y >= 750){
             item.y = -300;
             item.style.left = Math.floor(Math.random()*350) + 'px';
@@ -102,13 +115,13 @@ function moveOpponentCar(car){
 }
 
 function isCollide(player,opponent){
-    playerRect = player.getBoundingClientRect();
-    opponentRect = opponent.getBoundingClientRect();
+    pRect = player.getBoundingClientRect();
+    oRect = opponent.getBoundingClientRect();
     return !(
-        (playerRect.top > opponent.bottom) ||
-        (playerRect.bottom < opponent.top) ||
-        (playerRect.right < opponentRect.left) ||
-        (playerRect.left > opponentRect.right)
+        (pRect.top > oRect.bottom) ||
+        (pRect.bottom < oRect.top) ||
+        (pRect.right < oRect.left) ||
+        (pRect.left > oRect.right)
     )
 }
 /*
@@ -133,7 +146,7 @@ function keyDown(e){
 function keyUp(e){
     e.preventDefault();
     keys[e.key] = false;
-    console.log(e.key);
+    // console.log(e.key);
 }
 
 // function keyRight(e){
