@@ -7,10 +7,10 @@ const gameArea = document.querySelector('.gameArea');
 // console.log(gameArea);
 
 let player = { speed:5, score:0};
-let car = document.createElement('div');
-car.setAttribute('class','car');
-car.innerText = "Car Object";
-gameArea.appendChild(car);
+// let car = document.createElement('div');
+// car.setAttribute('class','car');
+// car.innerText = "Car Object";
+// gameArea.appendChild(car);
 
  
 startScreen.addEventListener('click', start);
@@ -18,7 +18,8 @@ startScreen.addEventListener('click', start);
 function start(){
     console.log("In Start");
 
-    gameArea.classList.remove('hide');
+    // gameArea.classList.remove('hide');
+    gameArea.innerHTML="";
     score.classList.remove('hide');
     startScreen.classList.add('hide');
 
@@ -26,6 +27,11 @@ function start(){
     player.score = 0;
     // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
     window.requestAnimationFrame(gamePlay);
+
+    let car = document.createElement('div');
+    car.setAttribute('class','car');
+    car.innerText = "Car Object";
+    gameArea.appendChild(car);
 
     for(x=0; x<5;x++){
         let roadLine = document.createElement('div');
@@ -58,6 +64,7 @@ function gamePlay(){
     // console.log("In Game Play");
     let road = gameArea.getBoundingClientRect();
     // console.log(road);
+    let car = document.querySelector('.car');
 
     if(player.start){
 
