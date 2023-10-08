@@ -7,10 +7,10 @@ const gameArea = document.querySelector('.gameArea');
 // console.log(gameArea);
 
 let player = { speed:5, score:0};
-let car = document.createElement('div');
-car.setAttribute('class','car');
-car.innerText = "Car Object";
-gameArea.appendChild(car);
+// let car = document.createElement('div');
+// car.setAttribute('class','car');
+// car.innerText = "Car Object";
+// gameArea.appendChild(car);
 
  
 startScreen.addEventListener('click', start);
@@ -18,7 +18,8 @@ startScreen.addEventListener('click', start);
 function start(){
     console.log("In Start");
 
-    gameArea.classList.remove('hide');
+    // gameArea.classList.remove('hide');
+    gameArea.innerHTML="";
     score.classList.remove('hide');
     startScreen.classList.add('hide');
 
@@ -26,6 +27,11 @@ function start(){
     player.score = 0;
     // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
     window.requestAnimationFrame(gamePlay);
+
+    let car = document.createElement('div');
+    car.setAttribute('class','car');
+    // car.innerText = "Car Object";
+    gameArea.appendChild(car);
 
     for(x=0; x<5;x++){
         let roadLine = document.createElement('div');
@@ -48,16 +54,26 @@ function start(){
         // oponentCar.y = x*150;
         oponentCar.y = (x+1)*(-350);
         oponentCar.style.top = oponentCar.y + 'px';
-        oponentCar.style.background = 'orange';
+        // oponentCar.style.background = randomColor();
+        oponentCar.style.backgroundColor = randomColor();
         oponentCar.style.left = Math.floor(Math.random()*350) + 'px';
         gameArea.appendChild(oponentCar);
     }
+}
+
+function randomColor(){
+    function c(){
+        let hex = Math.floor(Math.random()*256).toString(16);
+        return ("0" + String(hex)).substr(-2);
+    }
+    return "#"+c()+c()+c();
 }
 
 function gamePlay(){
     // console.log("In Game Play");
     let road = gameArea.getBoundingClientRect();
     // console.log(road);
+    let car = document.querySelector('.car');
 
     if(player.start){
 
@@ -68,7 +84,7 @@ function gamePlay(){
             player.y -= player.speed;
             car.style.top = player.y + 'px';
         }
-        else if(keys.ArrowDown && player.y < (road.height-100)){car.style.top = (player.y += player.speed) + 'px';}
+        else if(keys.ArrowDown && player.y < (road.height-130)){car.style.top = (player.y += player.speed) + 'px';}
         else if(keys.ArrowLeft && player.x > 0){car.style.left = (player.x -= player.speed) + 'px';}
         else if(keys.ArrowRight && player.x < (road.width-50)){car.style.left = (player.x += player.speed) + 'px';}
 
@@ -77,7 +93,8 @@ function gamePlay(){
 
         console.log(player.score++);
         player.score++;
-        score.innerText=  "Score: " + player.score;
+        let ps = player.score-1; //adjustment for endGame pop-up
+        score.innerText=  "Score: " + ps;
         window.requestAnimationFrame(gamePlay);
         // console.log(player.score++);
     }
@@ -95,6 +112,7 @@ function moveLines(){
 function endGame(){
     startScreen.classList.remove('hide');
     player.start = false;
+    startScreen.innerHTML="Game Over<br> Your final Score is " + player.score + "<br>Press here to restart the game"
 }
 
 function moveOpponentCar(car){
