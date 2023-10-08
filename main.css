@@ -16,3 +16,10 @@
     position: relative;
     overflow: hidden;
 }
+
+.roadLine{
+    width: 10px; height: 100px;
+    background: white;
+    margin-left: 195px;
+    position: absolute;
+}

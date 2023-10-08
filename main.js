@@ -24,7 +24,13 @@ function start(){
     player.start = true;
     // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
     window.requestAnimationFrame(gamePlay);
-    
+
+    for(x=0; x<5;x++){
+        let roadLine = document.createElement('div');
+        roadLine.setAttribute('class','roadLine');
+        roadLine.style.top = x*150 + 'px';
+        gameArea.appendChild(roadLine);
+    }    
     
     player.x = car.offsetLeft;
     player.y = car.offsetTop; 
