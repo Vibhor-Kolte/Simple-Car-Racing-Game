@@ -30,7 +30,7 @@ function start(){
 
     let car = document.createElement('div');
     car.setAttribute('class','car');
-    car.innerText = "Car Object";
+    // car.innerText = "Car Object";
     gameArea.appendChild(car);
 
     for(x=0; x<5;x++){
@@ -54,10 +54,18 @@ function start(){
         // oponentCar.y = x*150;
         oponentCar.y = (x+1)*(-350);
         oponentCar.style.top = oponentCar.y + 'px';
-        oponentCar.style.background = 'orange';
+        oponentCar.style.background = randomColor();
         oponentCar.style.left = Math.floor(Math.random()*350) + 'px';
         gameArea.appendChild(oponentCar);
     }
+}
+
+function randomColor(){
+    function c(){
+        let hex = Math.floor(Math.random()*256).toString(16);
+        return ("0" + String(hex)).substr(-2);
+    }
+    return "#"+c()+c()+c();
 }
 
 function gamePlay(){
