@@ -60,7 +60,7 @@ function gamePlay(){
     if(player.start){
 
         moveLines();
-        moveOpponentCar();
+        moveOpponentCar(car);
 
         if(keys.ArrowUp && player.y > 50){
             player.y -= player.speed;
@@ -86,9 +86,12 @@ function moveLines(){
     })
 }
 
-function moveOpponentCar(){
+function moveOpponentCar(car){
     let lines = document.querySelectorAll('.oponentCar'); //try it out:- document.querySelector('.roadLine');
     lines.forEach(function(item){
+        if(isCollide(car,item)){
+            console.log("Collision Detected");
+        }
         if(item.y >= 750){
             item.y = -300;
             item.style.left = Math.floor(Math.random()*350) + 'px';
@@ -98,6 +101,16 @@ function moveOpponentCar(){
     })
 }
 
+function isCollide(player,opponent){
+    playerRect = player.getBoundingClientRect();
+    opponentRect = opponent.getBoundingClientRect();
+    return !(
+        (playerRect.top > opponent.bottom) ||
+        (playerRect.bottom < opponent.top) ||
+        (playerRect.right < opponentRect.left) ||
+        (playerRect.left > opponentRect.right)
+    )
+}
 /*
     ..............
 */
