@@ -42,7 +42,7 @@ function start(){
 
     for(x=0; x<3;x++){
         let oponentCar = document.createElement('div');
-        oponentCar.setAttribute('class','enemy');
+        oponentCar.setAttribute('class','oponentCar');
         oponentCar.y = x*150;
         oponentCar.style.top = oponentCar.y + 'px';
         oponentCar.style.background = 'orange';
@@ -59,6 +59,7 @@ function gamePlay(){
     if(player.start){
 
         moveLines();
+        moveOpponentCar();
 
         if(keys.ArrowUp && player.y > 50){
             player.y -= player.speed;
@@ -83,6 +84,16 @@ function moveLines(){
         item.style.top = item.y + 'px';
     })
 }
+
+function moveOpponentCar(){
+    let lines = document.querySelectorAll('.oponentCar'); //try it out:- document.querySelector('.roadLine');
+    lines.forEach(function(item){
+        if(item.y >= 700){item.y -=750;}
+        item.y += player.speed;
+        item.style.top = item.y + 'px';
+    })
+}
+
 /*
     ..............
 */
