@@ -37,8 +37,16 @@ function start(){
     player.y = car.offsetTop; 
 
     /*  left: 50px; top: 120px;  */
-    console.log("top position:- " + car.offsetTop + "..." + player.y);
-    console.log("left position:- " + car.offsetLeft + "..." + player.x);
+    // console.log("top position:- " + car.offsetTop + "..." + player.y);
+    // console.log("left position:- " + car.offsetLeft + "..." + player.x);
+
+    for(x=0; x<3;x++){
+        let oponentCar = document.createElement('div');
+        oponentCar.setAttribute('class','enemy');
+        oponentCar.y = x*150;
+        oponentCar.style.top = oponentCar.y + 'px';
+        gameArea.appendChild(oponentCar);
+    }
 }
 
 function gamePlay(){
