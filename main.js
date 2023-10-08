@@ -28,7 +28,8 @@ function start(){
     for(x=0; x<5;x++){
         let roadLine = document.createElement('div');
         roadLine.setAttribute('class','roadLine');
-        roadLine.style.top = x*150 + 'px';
+        roadLine.y = x*150;
+        roadLine.style.top = roadLine.y + 'px';
         gameArea.appendChild(roadLine);
     }    
     
@@ -36,8 +37,19 @@ function start(){
     player.y = car.offsetTop; 
 
     /*  left: 50px; top: 120px;  */
-    console.log("top position:- " + car.offsetTop + "..." + player.y);
-    console.log("left position:- " + car.offsetLeft + "..." + player.x);
+    // console.log("top position:- " + car.offsetTop + "..." + player.y);
+    // console.log("left position:- " + car.offsetLeft + "..." + player.x);
+
+    for(x=0; x<3;x++){
+        let oponentCar = document.createElement('div');
+        oponentCar.setAttribute('class','oponentCar');
+        // oponentCar.y = x*150;
+        oponentCar.y = (x+1)*(-350);
+        oponentCar.style.top = oponentCar.y + 'px';
+        oponentCar.style.background = 'orange';
+        oponentCar.style.left = Math.floor(Math.random()*350) + 'px';
+        gameArea.appendChild(oponentCar);
+    }
 }
 
 function gamePlay(){
@@ -46,6 +58,9 @@ function gamePlay(){
     // console.log(road);
 
     if(player.start){
+
+        moveLines();
+        moveOpponentCar();
 
         if(keys.ArrowUp && player.y > 50){
             player.y -= player.speed;
@@ -61,6 +76,28 @@ function gamePlay(){
         window.requestAnimationFrame(gamePlay);
     }
 }
+
+function moveLines(){
+    let lines = document.querySelectorAll('.roadLine'); //try it out:- document.querySelector('.roadLine');
+    lines.forEach(function(item){
+        if(item.y >= 700){item.y -=750;}
+        item.y += player.speed;
+        item.style.top = item.y + 'px';
+    })
+}
+
+function moveOpponentCar(){
+    let lines = document.querySelectorAll('.oponentCar'); //try it out:- document.querySelector('.roadLine');
+    lines.forEach(function(item){
+        if(item.y >= 750){
+            item.y = -300;
+            item.style.left = Math.floor(Math.random()*350) + 'px';
+        }
+        item.y += player.speed;
+        item.style.top = item.y + 'px';
+    })
+}
+
 /*
     ..............
 */
