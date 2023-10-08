@@ -40,7 +40,7 @@ function start(){
     // console.log("top position:- " + car.offsetTop + "..." + player.y);
     // console.log("left position:- " + car.offsetLeft + "..." + player.x);
 
-    for(x=0; x<3;x++){
+    for(x=0; x<4;x++){
         let oponentCar = document.createElement('div');
         oponentCar.setAttribute('class','oponentCar');
         oponentCar.y = x*150;
@@ -88,7 +88,10 @@ function moveLines(){
 function moveOpponentCar(){
     let lines = document.querySelectorAll('.oponentCar'); //try it out:- document.querySelector('.roadLine');
     lines.forEach(function(item){
-        if(item.y >= 700){item.y -=750;}
+        if(item.y >= 700){
+            item.y -=750;
+            item.style.left = Math.floor(Math.random()*350) + 'px';
+        }
         item.y += player.speed;
         item.style.top = item.y + 'px';
     })
