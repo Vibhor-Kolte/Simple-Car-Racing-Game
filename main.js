@@ -28,7 +28,8 @@ function start(){
     for(x=0; x<5;x++){
         let roadLine = document.createElement('div');
         roadLine.setAttribute('class','roadLine');
-        roadLine.style.top = x*150 + 'px';
+        roadLine.y = x*150;
+        roadLine.style.top = roadLine.y + 'px';
         gameArea.appendChild(roadLine);
     }    
     
@@ -47,6 +48,8 @@ function gamePlay(){
 
     if(player.start){
 
+        moveLines();
+
         if(keys.ArrowUp && player.y > 50){
             player.y -= player.speed;
             car.style.top = player.y + 'px';
@@ -60,6 +63,15 @@ function gamePlay(){
 
         window.requestAnimationFrame(gamePlay);
     }
+}
+
+function moveLines(){
+    let lines = document.querySelectorAll('.roadLine'); //try it out:- document.querySelector('.roadLine');
+    lines.forEach(function(item){
+        if(item.y >= 700){item.y -=750;}
+        item.y += player.speed;
+        item.style.top = item.y + 'px';
+    })
 }
 /*
     ..............
